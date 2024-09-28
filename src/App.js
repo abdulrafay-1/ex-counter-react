@@ -1,24 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  const [counter, SetCounter] = useState(0);
+  let color = counter == 0 ? '#000' : counter > 0 ? 'green' : 'red';
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className='main'>
+      <h1>Counter App</h1>
+      <div className='counter-con'>
+        <button className='minus-btn' onClick={() => SetCounter(counter - 1)}>-</button>
+        <div className='counter' style={{ color: color }}>{counter}</div>
+        <button className='plus-btn' onClick={() => SetCounter(counter + 1)}>+</button>
+      </div>
+    </main>
   );
 }
 
